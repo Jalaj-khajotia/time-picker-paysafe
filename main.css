@@ -1,0 +1,156 @@
+#circle {
+    top: -80px;
+    z-index: -10000;
+}
+
+#confirmslotbtn {
+    font-size: 16px;
+    width: 85px;
+    position: absolute;
+    top: 24px;
+    left: -5px;
+}
+
+#date {
+    display: inline;
+    padding: 0 10px;
+}
+
+button {
+    margin: 6px 0;
+}
+
+.available {
+    background-color: greenyellow;
+}
+
+.unavailable {
+    background-color: grey;
+}
+
+.reserved {
+    background-color: red;
+}
+
+.selected {
+    background-color: blue !important;
+}
+
+.dab {
+    display: none;
+}
+
+#ampm-bar {
+    position: absolute;
+    top: 260px;
+    font-size: 18px;
+    left: 46%;
+}
+
+ul {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+
+li {
+    position: absolute;
+    font-size: 1em;
+    width: 10em;
+    height: 10em;
+    overflow: hidden;
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+    color: #aaa;
+    left: 50%;
+    top: 50%;
+    margin-top: -1.3em;
+    margin-left: -10em;
+    overflow: hidden;
+    border-radius: 0 50%;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.li1 {
+    transform: rotate(-10deg) skew(50deg);
+}
+
+.li2 {
+    transform: rotate(20deg) skew(50deg);
+}
+
+.li3 {
+    transform: rotate(50deg) skew(50deg);
+}
+
+.li4 {
+    transform: rotate(80deg) skew(50deg);
+}
+
+.li5 {
+    transform: rotate(110deg) skew(50deg);
+}
+
+.li6 {
+    transform: rotate(140deg) skew(50deg);
+}
+
+.li7 {
+    transform: rotate(170deg) skew(50deg);
+}
+
+.li8 {
+    transform: rotate(200deg) skew(50deg);
+}
+
+.li9 {
+    transform: rotate(230deg) skew(50deg);
+}
+
+.li10 {
+    transform: rotate(260deg) skew(50deg);
+}
+
+.li11 {
+    transform: rotate(290deg) skew(50deg);
+}
+
+.li12 {
+    transform: rotate(320deg) skew(50deg);
+}
+
+a {
+    display: block;
+    font-size: 1.2em;
+    height: 13.5em;
+    width: 13.5em;
+    position: absolute;
+    bottom: -6.75em;
+    right: -6.75em;
+    text-decoration: none;
+    color: white;
+    -webkit-transition: background-color .3s ease, -webkit-transform .8s ease;
+    transition: background-color .3s ease, -webkit-transform .8s ease;
+    transition: background-color .3s ease, transform .8s ease;
+    transform: skew(-58deg) rotate(-30deg) scale(0.3);
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 2em;
+}
+
+.ampm {
+    position: absolute;
+    padding: 12px;
+    margin: 0 80px;
+    display: inline-table;
+    height: 30px;
+    width: 30px;
+    background-color: cadetblue;
+    border-radius: 30px;
+    color: white;
+}

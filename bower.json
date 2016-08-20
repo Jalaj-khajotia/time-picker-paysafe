@@ -1,0 +1,13 @@
+{
+  "name": "paysafetest",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.3.19",
+    "angular-animate": "~1.3.x",
+    "jquery": "~2.1.1",
+    "ngstorage": "^0.3.11"
+  },
+  "resolutions": {
+    "angular": "~1.3.x"
+  }
+}

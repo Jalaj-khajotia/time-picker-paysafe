@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="main.css"></link>
+    <link rel="stylesheet" href="css/font-awesome.css"></link>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="timeslot-picker-ctrl.js">
+    </script>
+</head>
+
+<body>
+    <h2>Angular-timeslot-picker directive</h2>
+    <div data-ng-app="paysafe-assignment">
+        <div ng-controller="timeslot-pickerCtrl" style="text-align: center;">
+            <div>
+                <i class="fa fa-arrow-left" aria-hidden="true" ng-click="shiftDateLeft()"></i>
+                <div id="date">{{date}}</div>
+                <i class="fa fa-arrow-right" aria-hidden="true" ng-click="shiftDateRight()"></i></div>
+
+            <ul id="circle">
+                <li id="li1" ng-repeat="t in timeselection" class="{{t.selector}}">
+                    <a class="{{t.status}}" ng-click="bookSlot($index)"></a>
+                </li>
+            </ul>
+            <div id="ampm-bar">
+                <div class="ampm" style="left: -170px;" ng-class="{'selected':amSlotSelected}" ng-click="toggleTime('am')">AM</div>
+                <div class="ampm" style="left: 20px;" ng-click="toggleTime('pm')" ng-class="{'selected':!amSlotSelected}">PM</div>
+                <div id="confirmslotbtn">
+                    <button ng-click="confirmSlot()">Book Slot</button>
+                    <button ng-click="resetUnload()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
