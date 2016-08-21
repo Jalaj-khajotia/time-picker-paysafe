@@ -61,13 +61,56 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
         console.info($scope.timeselection);
     }
     $scope.count = 1;
-    var selectedIndex = 0;
+    var selectedIndex = -1,
+        leftIndex = -1,
+        rightIndex = -1;
     $scope.bookSlot = function(index) {
         var element = $scope.timeselection[index];
         if (element.status === 'available') {
-            element.status = 'selected';
+            if (selectedIndex == -1) {
+                selectedIndex = index;
+                leftIndex = index;
+                rightIndex = index;
+                element.status = 'selected';
+            } else {
+                if ((rightIndex + 1) % 12 == index) {
+                    rightIndex = index;
+                    element.status = 'selected';
+                } else if ((leftIndex - 1) % 12 == index) {
+                    leftIndex = index;
+                    element.status = 'selected';
+                } else {
+                    $scope.timeselection.forEach(function(element) {
+                        if (element.status == 'selected') {
+                            element.status = 'available';
+                        }
+                    }, this);
+                    element.status = 'selected';
+                    selectedIndex = index;
+                    leftIndex = index;
+                    rightIndex = index;
+                }
+            }
+
         } else if (element.status === 'selected') {
-            element.status = 'available';
+            if (leftIndex == index) {
+                leftIndex = (leftIndex + 1) % 12;
+                element.status = 'available';
+            } else if (rightIndex == index) {
+                rightIndex = (rightIndex - 1) % 12;
+                element.status = 'available';
+            } else {
+                $scope.timeselection.forEach(function(element) {
+                    if (element.status == 'selected') {
+                        element.status = 'available';
+                    }
+                }, this);
+                selectedIndex = index;
+                leftIndex = index;
+                rightIndex = index;
+                element.status = 'selected';
+            }
+
         }
     }
     $scope.confirmSlot = function() {

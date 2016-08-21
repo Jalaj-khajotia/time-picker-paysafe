@@ -22,9 +22,17 @@
 
             <ul id="circle">
                 <li id="li1" ng-repeat="t in timeselection" class="{{t.selector}}">
-                    <a class="{{t.status}}" ng-click="bookSlot($index)"></a>
+                    <a class="{{t.status}}" ng-click="bookSlot($index)"><span>{{$index}}</span></a>
                 </li>
             </ul>
+            <div id="legend">
+                <div>
+                    <div class="available img"></div>Available</div>
+                <div>
+                    <div class="reserved img"></div>Reserved</div>
+                <div>
+                    <div class="unavailable img"></div>Unavailable</div>
+            </div>
             <div id="ampm-bar">
                 <div class="ampm" style="left: -170px;" ng-class="{'selected':amSlotSelected}" ng-click="toggleTime('am')">AM</div>
                 <div class="ampm" style="left: 20px;" ng-click="toggleTime('pm')" ng-class="{'selected':!amSlotSelected}">PM</div>

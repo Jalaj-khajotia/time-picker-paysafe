@@ -16,6 +16,22 @@
     padding: 0 10px;
 }
 
+.img.available,
+.reserved.img,
+.unavailable.img {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+#legend {
+    position: absolute;
+    top: 129px;
+    font-size: 18px;
+    left: 20%;
+}
+
 button {
     margin: 6px 0;
 }
@@ -38,13 +54,6 @@ button {
 
 .dab {
     display: none;
-}
-
-#ampm-bar {
-    position: absolute;
-    top: 260px;
-    font-size: 18px;
-    left: 46%;
 }
 
 ul {
@@ -143,9 +152,16 @@ a {
     padding-top: 2em;
 }
 
+#ampm-bar {
+    position: absolute;
+    top: 225px;
+    font-size: 18px;
+    right: 52%
+}
+
 .ampm {
     position: absolute;
-    padding: 12px;
+    padding: 5px;
     margin: 0 80px;
     display: inline-table;
     height: 30px;
