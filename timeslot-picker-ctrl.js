@@ -32,12 +32,6 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
         reset();
     }
 
-    $scope.resetUnload = function() {
-        $scope.amSlotSelected = true;
-        index = 0;
-        reset();
-    }
-
     function reset() {
         var slotType, i = 0,
             end = 0;
@@ -55,7 +49,6 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
         $scope.timeselection = [];
         for (var j = 1; i < end; i++, j++) {
             var obj = $scope.slotsData[index].slots[i];
-            obj.selector = 'li' + j;
             $scope.timeselection.push(obj);
         }
         console.info($scope.timeselection);
@@ -73,10 +66,10 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
                 rightIndex = index;
                 element.status = 'selected';
             } else {
-                if ((rightIndex + 1) % 12 == index) {
+                if ((rightIndex + 1) == index) {
                     rightIndex = index;
                     element.status = 'selected';
-                } else if ((leftIndex - 1) % 12 == index) {
+                } else if ((leftIndex - 1) == index) {
                     leftIndex = index;
                     element.status = 'selected';
                 } else {
@@ -114,7 +107,6 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
         }
     }
     $scope.confirmSlot = function() {
-        alert('your slot has been confimed');
         $scope.timeselection.forEach(function(element) {
             if (element.status == 'selected') {
                 element.status = 'reserved';
@@ -139,7 +131,21 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
             }, this);
         }
         $localStorage.jsonData = $scope.slotsData;
+        alert('Your slot has been confimed for date=' + $scope.date + ' & time from ' + (leftIndex) + ($scope.amSlotSelected ? ' am' : ' pm') + ' to ' +
+            getTimestatus((rightIndex + 1)));
+        selectedIndex = -1,
+            leftIndex = -1,
+            rightIndex = -1;
     }
+
+    function getTimestatus(time) {
+        if ($scope.amSlotSelected) {
+            return time == 12 ? (time + ' pm') : (time + ' am');
+        } else {
+            return time == 12 ? (time + ' am') : (time + ' pm');
+        }
+    }
+
 
     $scope.shiftDateLeft = function() {
         if (index > 0) {
@@ -154,15 +160,3 @@ app.controller('timeslot-pickerCtrl', function($scope, $http, $localStorage) {
         }
     }
 });
-/*.
-
-    config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-        // $locationProvider.hashPrefix('!');
-
-        $routeProvider.when('/home', {
-            templateUrl: 'home/views/home.html',
-            controller: 'HomeCtrl'
-        });
-        $routeProvider.otherwise({redirectTo: '/home'});
-    }]);
-*/

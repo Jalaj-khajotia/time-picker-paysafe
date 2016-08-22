@@ -15,16 +15,19 @@
     <h2>Angular-timeslot-picker directive</h2>
     <div data-ng-app="paysafe-assignment">
         <div ng-controller="timeslot-pickerCtrl" style="text-align: center;">
-            <div>
+            <div id="date-navigation">
                 <i class="fa fa-arrow-left" aria-hidden="true" ng-click="shiftDateLeft()"></i>
                 <div id="date">{{date}}</div>
                 <i class="fa fa-arrow-right" aria-hidden="true" ng-click="shiftDateRight()"></i></div>
-
-            <ul id="circle">
-                <li id="li1" ng-repeat="t in timeselection" class="{{t.selector}}">
-                    <a class="{{t.status}}" ng-click="bookSlot($index)"><span>{{$index}}</span></a>
-                </li>
-            </ul>
+            <div class="cn-wrapper" style="border-radius: 50%;">
+                <ul>
+                    <li ng-repeat="t in timeselection" class="li{{$index+1}}" style="left: 50%; top: 50%; margin-top: -1.3em; margin-left: -10em; overflow: hidden;">
+                        <a class="{{t.status}}" ng-click="bookSlot($index)" style="transform: skew(-50deg) rotate(-70deg) scale(1); border-radius: 50%; text-align: center; padding-top: 2em;">
+                            <span class="span{{$index+1}}">{{($index+1)}}</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <div id="legend">
                 <div>
                     <div class="available img"></div>Available</div>
@@ -34,16 +37,14 @@
                     <div class="unavailable img"></div>Unavailable</div>
             </div>
             <div id="ampm-bar">
-                <div class="ampm" style="left: -170px;" ng-class="{'selected':amSlotSelected}" ng-click="toggleTime('am')">AM</div>
-                <div class="ampm" style="left: 20px;" ng-click="toggleTime('pm')" ng-class="{'selected':!amSlotSelected}">PM</div>
+                <div class="ampm" style="left: -236px;" ng-class="{'selected':amSlotSelected}" ng-click="toggleTime('am')">AM</div>
+                <div class="ampm" style="left: 68px;z-index: 10000;" ng-click="toggleTime('pm')" ng-class="{'selected':!amSlotSelected}">PM</div>
                 <div id="confirmslotbtn">
                     <button ng-click="confirmSlot()">Book Slot</button>
-                    <button ng-click="resetUnload()">Reset</button>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
