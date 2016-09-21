@@ -1,0 +1,120 @@
+<div id="timeslot-canvas">
+                <div class="wrapper wrapper1">
+                    <div class="pie spinner"></div>
+                    <div class="mask"></div>
+                </div>
+                <div class="wrapper wrapper2">
+                    <div class="pie spinner"></div>
+                    <div class="mask"></div>
+                </div>
+                <div class="wrapper wrapper3">
+                    <div class="pie spinner"></div>
+                    <div class="mask"></div>
+                </div>
+                <div class="wrapper wrapper4">
+                    <div class="pie spinner"></div>
+                    <div class="mask"></div>
+                </div>
+                <div class="wrapper wrapper5">
+                    <div class="pie spinner"></div>
+                    <div class="mask"></div>
+                </div>
+                <div class="wrapper wrapper6">
+                    <div class="pie spinner"></div>
+                    <div class="mask"></div>
+                </div>
+
+                .wrapper {
+    position: absolute;
+    margin: 40px auto;
+    background: white;
+}
+
+.wrapper1 .pie {
+    background: #08C;
+    z-index: 900 !important;
+}
+
+.wrapper2 .pie {
+    background: orangered;
+    z-index: 800 !important;
+}
+
+.wrapper3 .pie {
+    background: yellowgreen;
+    z-index: 700 !important;
+}
+
+.wrapper4 .pie {
+    background: sandybrown;
+    z-index: 600 !important;
+}
+
+.wrapper5 .pie {
+    background: paleturquoise;
+    z-index: 500 !important;
+}
+
+.wrapper6 .pie {
+    background: violet;
+    z-index: 400 !important;
+}
+
+.wrapper1 .spinner {
+    transform: rotate(30deg);
+}
+
+.wrapper2 .spinner {
+    transform: rotate(60deg);
+}
+
+.wrapper3 .spinner {
+    transform: rotate(90deg);
+}
+
+.wrapper4 .spinner {
+    transform: rotate(120deg);
+}
+
+.wrapper5 .spinner {
+    transform: rotate(150deg);
+}
+
+.wrapper6 .spinner {
+    transform: rotate(180deg);
+}
+
+.wrapper,
+.wrapper * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 250px;
+    height: 250px;
+}
+
+.wrapper .pie {
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% 50%;
+    position: absolute;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+}
+
+.wrapper .spinner {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 200;
+    border-right: none;
+}
+
+.wrapper .mask {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    opacity: 1;
+    z-index: 1000;
+}
